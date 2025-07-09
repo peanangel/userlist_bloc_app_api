@@ -8,10 +8,9 @@ class UserDetailBloc extends Bloc<UserDetailEvent, UserDetailState> {
 
   UserDetailBloc({
     required UserDetailRepository userDetailRepository,
-    required int userId,
+
   }) : userDetailRepository = userDetailRepository,
        super(const UserDetailInitial()) {
-    add(SelectUser(userId: userId));
     on<SelectUser>((event, emit) async {
       emit(UserDetailLoading());
       try {
